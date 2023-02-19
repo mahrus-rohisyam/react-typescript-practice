@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import CounterProvider from "../../hooks/useCounter/CounterProvider";
 import DefaultTemplate from "../../templates/DefaultTemplate";
 import ContextTab from "./ContextTab";
 import LocalTab from "./LocalTab";
+import CounterProvider from "../../../hooks/useCounter/CounterProvider";
 
 const CounterPage = () => {
 	const [data, setData] = useState<{count: Number, tabIndex: Number}>({count: 0, tabIndex: 0})

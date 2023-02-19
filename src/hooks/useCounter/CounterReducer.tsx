@@ -14,7 +14,11 @@ interface DecrementAction extends Action {
 	type: "DECREMENT";
 }
 
-export type CounterAction = IncrementAction | DecrementAction;
+interface ResetAction extends Action {
+	type: "RESET";
+}
+
+export type CounterAction = IncrementAction | DecrementAction | ResetAction;
 
 const CounterReducer = (state: CounterState, action: CounterAction): CounterState => {
 	switch (action.type) {
@@ -22,6 +26,8 @@ const CounterReducer = (state: CounterState, action: CounterAction): CounterStat
 			return { count: state.count + 1 };
 		case "DECREMENT":
 			return { count: state.count - 1 };
+		case "RESET":
+			return { count: 0 };
 		default:
 			throw new Error("Invalid action type");
 	}

@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
 import DefaultTemplate from "../../templates/DefaultTemplate";
-import { TodoProvider } from "../../hooks/useTodo/TodoProvider";
-import { useTodos } from "../../hooks/useTodo/useTodos";
+import { TodoProvider } from "../../../hooks/useTodo/TodoProvider";
 
 const TodoPage = () => {
 
