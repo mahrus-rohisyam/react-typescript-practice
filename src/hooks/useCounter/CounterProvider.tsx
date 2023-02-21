@@ -1,26 +1,28 @@
-import React, { createContext, useReducer } from "react";
+import React, { useReducer } from "react";
 import {
-	CounterAction,
 	CounterReducer,
-	CounterState,
 } from "./CounterReducer";
+import { CounterContext, CounterState } from "./CounterContext";
 
 const InitialCounterState: CounterState = { count: 0 };
 
-interface CounterContextValue {
-	state: CounterState;
-	dispatch: React.Dispatch<CounterAction>;
-}
-
-export const CounterContext = createContext<CounterContextValue | null>(
-	null
-);
-
 const CounterProvider = ({ children }: { children: React.ReactNode }) => {
-	const [state, dispatch] = useReducer(CounterReducer, InitialCounterState);
-	const value = { state, dispatch };
+	const [counterState, dispatch] = useReducer(CounterReducer, InitialCounterState);
+	// const value = { state, dispatch };
+	const increment = () => {
+		dispatch({type: "INCREMENT"})
+	}
+
+	const decrement = () => {
+		dispatch({type: "DECREMENT"})
+	}
+
+	const reset = () => {
+		dispatch({type: "RESET"})
+	}
+
 	return (
-		<CounterContext.Provider value={value}>{children}</CounterContext.Provider>
+		<CounterContext.Provider value={{counterState, increment, decrement, reset}}>{children}</CounterContext.Provider>
 	);
 };
 

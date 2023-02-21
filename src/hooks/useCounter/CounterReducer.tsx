@@ -1,26 +1,14 @@
-export interface CounterState {
-	count: number;
-}
+import { CounterState } from "./CounterContext";
 
-interface Action {
-	type: string;
-}
+export type CounterAction =
+	| { type: "INCREMENT" }
+	| { type: "DECREMENT" }
+	| { type: "RESET" };
 
-interface IncrementAction extends Action {
-	type: "INCREMENT";
-}
-
-interface DecrementAction extends Action {
-	type: "DECREMENT";
-}
-
-interface ResetAction extends Action {
-	type: "RESET";
-}
-
-export type CounterAction = IncrementAction | DecrementAction | ResetAction;
-
-const CounterReducer = (state: CounterState, action: CounterAction): CounterState => {
+const CounterReducer = (
+	state: CounterState,
+	action: CounterAction
+): CounterState => {
 	switch (action.type) {
 		case "INCREMENT":
 			return { count: state.count + 1 };

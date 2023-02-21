@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const CounterContext = () => {
-  return (
-    <div>CounterContext</div>
-  )
-}
+export type CounterState = {
+	count: number;
+};
 
-export default CounterContext
+export type CounterContextProps = {
+	counterState: CounterState;
+  increment: () => void;
+  decrement: () => void;
+  reset: () => void;
+};
+
+export const CounterContext = React.createContext<CounterContextProps>(
+  {} as CounterContextProps
+)

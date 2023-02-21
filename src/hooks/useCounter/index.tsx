@@ -1,4 +1,6 @@
-import * as useCounterProvider from "./CounterProvider";
-import * as useCounterReducer from "./CounterReducer";
+import * as CounterContext from "./CounterContext";
+import * as CounterProvider from "./CounterProvider";
+import useCounter from './useCounter'
 
-export { useCounterProvider, useCounterReducer };
+export default useCounter
+export { CounterContext, CounterProvider, useCounter };
