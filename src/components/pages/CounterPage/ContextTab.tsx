@@ -4,9 +4,9 @@ import useCounter from "../../../hooks/useCounter";
 
 const ContextTab = () => {
 	// Cara Pertama:
-	// const { counterState, increment, decrement, reset  } = useContext(CounterContext);
+	const { counterState, increment, decrement, reset  } = useContext(CounterContext);
 	// Cara Kedua (Custom Hooks)
-	const { counterState, decrement, increment, reset } = useCounter();
+	// const { counterState, decrement, increment, reset } = useCounter();
 
 	const plusButtonHandler = (e: React.MouseEvent) => {
 		e.preventDefault();

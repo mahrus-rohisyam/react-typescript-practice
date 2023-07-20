@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocalStorage } from '../../../hooks/useLocalStorage';
+import useLocalStorage from '../../../hooks/useLocalStorage';
 
 const LocalTab = () => {
   const [state, setState] = useLocalStorage('counter', 1)

@@ -5,14 +5,14 @@ type ReturnType<T> = [
 	React.Dispatch<React.SetStateAction<T | undefined>>
 ];
 
-export const useLocalStorage = <T,>(
+const useLocalStorage = <T,>(
 	key: string,
 	initialValue?: T
 ): ReturnType<T> => {
 	const [state, setState] = useState<T | undefined>(() => {
 		if (!initialValue) return;
 		try {
-			const value = localStorage.getItem(key);
+			const value = sessionStorage.getItem(key);
 			return value ? JSON.parse(value) : initialValue;
 		} catch (err) {
 			return initialValue;
@@ -22,7 +22,7 @@ export const useLocalStorage = <T,>(
 	useEffect(() => {
 		if (state) {
 			try {
-				localStorage.setItem(key, JSON.stringify(state));
+				sessionStorage.setItem(key, JSON.stringify(state));
 			} catch (err) {
 				console.log(err);
 			}
@@ -31,3 +31,5 @@ export const useLocalStorage = <T,>(
 
 	return [state, setState];
 };
+
+export default useLocalStorage
