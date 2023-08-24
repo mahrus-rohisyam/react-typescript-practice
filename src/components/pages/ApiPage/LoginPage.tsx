@@ -4,7 +4,6 @@ import { useState } from "react";
 const LoginPage = () => {
   const [log, setLog] = useState();
   const [token, setToken] = useState()
-  const baseUrl = "http://103.175.216.13:9090";
   const loginData = {
     phone: "085846132417",
     password: "654321",

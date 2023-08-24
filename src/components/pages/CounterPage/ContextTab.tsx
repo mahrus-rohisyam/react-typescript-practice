@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { CounterContext } from "../../../hooks/useCounter/CounterContext";
-import useCounter from "../../../hooks/useCounter";
 
 const ContextTab = () => {
 	// Cara Pertama:

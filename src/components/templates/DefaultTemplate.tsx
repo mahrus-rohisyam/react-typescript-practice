@@ -1,11 +1,9 @@
-import React from "react";
-
 type Props = {
-	children: React.ReactNode;
+  children: React.ReactNode;
 };
 
 const DefaultTemplate = (props: Props) => {
-	return <div>{props.children}</div>;
+  return <main>{props.children}</main>;
 };
 
 export default DefaultTemplate;

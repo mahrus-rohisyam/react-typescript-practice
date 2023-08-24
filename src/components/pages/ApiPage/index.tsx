@@ -1,12 +1,5 @@
 import axios from "axios";
-import { ArticleType } from "../../../@types/ArticleType";
 import { useEffect } from "react";
-
-type Props = {
-  articles: ArticleType[];
-};
-
-const baseUrl = "http://103.175.216.13:9090";
 
 const ApiPage = () => {
   const getApi = async () => {
